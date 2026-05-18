@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio 2026
 
-## Getting Started
+A production-grade engineering portfolio built on the Next.js App Router, architected for high-fidelity system showcase. Designed with precise control over layout, typography, and interactive state — deployed continuously to Vercel.
 
-First, run the development server:
+---
+
+## Environments
+
+| Target | URL |
+|--------|-----|
+| Production | https://portfolio-2026-umber-psi.vercel.app |
+| Local dev | http://localhost:3000 |
+
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Framework | Next.js (App Router) |
+| UI Library | React 19 |
+| Styling | Tailwind CSS v4 |
+| Language | TypeScript |
+| Tooling | Claude Code CLI |
+| Deployment | Vercel |
+
+---
+
+## Key Features
+
+**Interactive Client-Side Theme State Matrix**
+A runtime accent-color switching system with three distinct visual modes. State is managed entirely client-side with no server round-trips, giving instant visual feedback across all themed surfaces.
+
+**App Router Architecture**
+Full adoption of the Next.js App Router — server components by default, layouts scoped at the route segment level, and streaming where applicable.
+
+**Tailwind CSS v4**
+Configured against the v4 CSS-first model with a custom design token layer for spacing, color, and typography scales.
+
+---
+
+## Local Development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000 to view the running application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Deployment
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Continuously deployed from `main` via Vercel. Every push to `main` triggers a production deployment automatically.
