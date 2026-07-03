@@ -1,48 +1,65 @@
+import { Mail } from "lucide-react";
+import { LinkedinIcon } from "./icons";
+import { site } from "../content";
+import Reveal from "./Reveal";
+
 export default function Hero() {
-    return (
-      <section 
-        id="hero" 
-        className="min-h-screen w-full flex items-center justify-center text-center px-8 pt-24 pb-16 relative overflow-hidden"
-      >
-        {/* Radiant Spotlight Glow Blur Effect */}
-        <div 
-          className="absolute w-[600px] h-[600px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full pointer-events-none bg-[radial-gradient(circle,rgba(108,99,255,0.12)_0%,transparent_70%)]" 
-        />
-  
-        <div className="relative z-10 max-w-[700px] flex flex-col items-center">
-          {/* Academic Meta Badge */}
-          <div className="inline-block px-4 py-1.5 mb-6 text-xs font-semibold tracking-wider uppercase rounded-full bg-primary/15 border border-primary/30 text-primary">
-            Computer Engineering · PSU · 2027
+  return (
+    <section
+      id="hero"
+      className="w-full min-h-[calc(100svh)] flex items-center relative overflow-hidden pt-24 pb-16"
+    >
+      {/* Soft accent wash that follows the active theme */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 55% 45% at 30% 35%, color-mix(in oklab, var(--color-accent) 8%, transparent), transparent)",
+        }}
+      />
+
+      <div className="relative z-10 max-w-5xl mx-auto px-6 w-full">
+        <Reveal>
+          <div className="max-w-3xl">
+            <div className="font-mono text-xs uppercase tracking-[0.2em] text-accent mb-5">
+              {site.role}
+            </div>
+
+            <h1 className="font-serif text-[clamp(2.75rem,7vw,4.5rem)] font-semibold tracking-tight leading-[1.05] text-foreground mb-6">
+              {site.name}
+            </h1>
+
+            <p className="text-lg md:text-xl text-muted max-w-xl leading-relaxed mb-8">
+              {site.tagline}
+            </p>
+
+            {/* Current status */}
+            <div className="inline-flex items-center gap-2.5 rounded-full border border-border bg-card px-4 py-2 mb-10">
+              <span className="h-2 w-2 rounded-full bg-accent animate-pulse" />
+              <span className="font-mono text-xs text-muted">{site.status}</span>
+            </div>
+
+            <div className="flex gap-4 flex-wrap">
+              <a
+                href={`mailto:${site.email}`}
+                className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium rounded-lg bg-accent text-background hover:-translate-y-0.5 hover:opacity-90 transition-all duration-200"
+              >
+                <Mail className="h-4 w-4" />
+                Email me
+              </a>
+              <a
+                href={site.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium rounded-lg border border-border-strong text-foreground hover:border-accent hover:text-accent hover:-translate-y-0.5 transition-all duration-200"
+              >
+                <LinkedinIcon className="h-4 w-4" />
+                LinkedIn
+              </a>
+            </div>
           </div>
-  
-          {/* Name Title with Metallic Gradient Accent */}
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight leading-none mb-5 bg-gradient-to-r from-white via-white to-[#b0aed0] bg-clip-text text-transparent">
-            Abdullah Alshaati
-          </h1>
-  
-          {/* Strategic Tagline */}
-          <p className="text-base sm:text-lg md:text-xl text-muted max-w-[520px] mb-10 leading-relaxed">
-            Building at the intersection of embedded systems, automation, and software.
-          </p>
-  
-          {/* Action Call-to-Response Interface Panels */}
-          <div className="flex gap-4 justify-center flex-wrap">
-            <a 
-              href="mailto:aalshaati0@gmail.com" 
-              className="inline-flex items-center gap-2 px-7 py-3 font-semibold text-sm rounded-lg bg-gradient-to-r from-primary to-[#5a52e8] text-white shadow-[0_4px_20px_rgba(108,99,255,0.35)] hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(108,99,255,0.5)] transition-all duration-200"
-            >
-              ✉ Email Me
-            </a>
-            <a 
-              href="https://linkedin.com/in/abdullah-alshaati-89a9a0256" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="inline-flex items-center gap-2 px-7 py-3 font-semibold text-sm rounded-lg bg-transparent border border-border text-foreground hover:border-primary hover:text-primary hover:-translate-y-0.5 transition-all duration-200"
-            >
-              in LinkedIn
-            </a>
-          </div>
-        </div>
-      </section>
-    );
-  }
+        </Reveal>
+      </div>
+    </section>
+  );
+}

@@ -1,55 +1,29 @@
-# Portfolio 2026
+# Abdullah Alshaati — Portfolio
 
-A production-grade engineering portfolio built on the Next.js App Router, architected for high-fidelity system showcase. Designed with precise control over layout, typography, and interactive state — deployed continuously to Vercel.
+Personal portfolio site: computer engineering student at Portland State University, with internship experience at Boeing and Genentech.
 
----
+**Live:** https://portfolio-2026-umber-psi.vercel.app
 
-## Environments
+## Stack
 
-| Target | URL |
-|--------|-----|
-| Production | https://portfolio-2026-umber-psi.vercel.app |
-| Local dev | http://localhost:3000 |
+- [Next.js 16](https://nextjs.org) (App Router, Turbopack)
+- React 19
+- Tailwind CSS v4 (CSS-first config, design tokens in `app/globals.css`)
+- TypeScript
+- [lucide-react](https://lucide.dev) icons
+- Deployed on Vercel — every push to `main` goes to production
 
----
+## Design
 
-## Tech Stack
+Warm editorial light theme: cream paper background, espresso ink text, and a terracotta accent, with Fraunces serif display headings over Geist body text. A navbar switcher cycles the accent color (terracotta / olive / clay) and persists the choice to `localStorage`, applied before hydration to avoid a flash.
 
-| Layer | Technology |
-|-------|-----------|
-| Framework | Next.js (App Router) |
-| UI Library | React 19 |
-| Styling | Tailwind CSS v4 |
-| Language | TypeScript |
-| Tooling | Claude Code CLI |
-| Deployment | Vercel |
+All page content lives in one typed module, `app/content.ts` — edit that file to update copy, jobs, projects, or skills without touching components.
 
----
-
-## Key Features
-
-**Interactive Client-Side Theme State Matrix**
-A runtime accent-color switching system with three distinct visual modes. State is managed entirely client-side with no server round-trips, giving instant visual feedback across all themed surfaces.
-
-**App Router Architecture**
-Full adoption of the Next.js App Router — server components by default, layouts scoped at the route segment level, and streaming where applicable.
-
-**Tailwind CSS v4**
-Configured against the v4 CSS-first model with a custom design token layer for spacing, color, and typography scales.
-
----
-
-## Local Development
+## Development
 
 ```bash
 npm install
-npm run dev
+npm run dev      # http://localhost:3000
+npm run build    # production build
+npm run lint     # eslint
 ```
-
-Open http://localhost:3000 to view the running application.
-
----
-
-## Deployment
-
-Continuously deployed from `main` via Vercel. Every push to `main` triggers a production deployment automatically.

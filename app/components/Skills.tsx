@@ -1,75 +1,36 @@
+import { skillGroups } from "../content";
+import Reveal from "./Reveal";
+import SectionHeading from "./SectionHeading";
+
 export default function Skills() {
-    const skillCategories = [
-      {
-        category: "Languages",
-        skills: [
-          { name: "Python", icon: "🐍" },
-          { name: "C", icon: "⚙️" },
-          { name: "Verilog", icon: "🔷" },
-          { name: "SQL", icon: "🗄️" },
-          { name: "VB.NET", icon: "📊" },
-          { name: "Excel / VBA", icon: "📋" },
-        ],
-      },
-      {
-        category: "Controls & Automation",
-        skills: [
-          { name: "PLC (Allen-Bradley)", icon: "🏭" },
-          { name: "HMI Development", icon: "🖥️" },
-          { name: "Studio 5000", icon: "⚡" },
-          { name: "Rockwell PharmaSuite", icon: "💊" },
-        ],
-      },
-      {
-        category: "Tools & Platforms",
-        skills: [
-          { name: "Git", icon: "🌿" },
-          { name: "Teradata", icon: "🗃️" },
-          { name: "Streamlit", icon: "📈" },
-          { name: "Visual Studio", icon: "🔧" },
-          { name: "CATIA V5", icon: "✈️" },
-          { name: "Power Query", icon: "🔄" },
-        ],
-      },
-    ];
-  
-    return (
-      <section id="skills" className="w-full bg-background py-24 px-8">
-        <div className="max-w-[1000px] mx-auto">
-          {/* Section Header */}
-          <div className="text-xs font-bold tracking-widest uppercase text-primary mb-3">
-            Skills
-          </div>
-          <h2 className="text-3xl md:text-4xl font-extrabold mb-4 text-foreground">
-            What I Work With
-          </h2>
-          <div className="w-12 h-0.5 bg-gradient-to-r from-primary to-accent rounded-sm mb-12" />
-  
-          {/* Categories Stack */}
-          <div className="flex flex-col gap-10">
-            {skillCategories.map((group, idx) => (
-              <div key={idx} className="flex flex-col">
-                {/* Category Label */}
-                <h3 className="text-xs font-bold tracking-wider uppercase text-muted mb-4">
+  return (
+    <section id="skills" className="w-full bg-background py-24 md:py-32">
+      <div className="max-w-5xl mx-auto px-6">
+        <SectionHeading eyebrow="Skills" title="What I work with" />
+
+        <div className="flex flex-col gap-10">
+          {skillGroups.map((group, index) => (
+            <Reveal key={group.category} delay={index * 80}>
+              <div className="flex flex-col">
+                <h3 className="font-mono text-xs uppercase tracking-wider text-faint mb-4">
                   {group.category}
                 </h3>
-  
-                {/* Badges Flex Grid */}
+
                 <div className="flex flex-wrap gap-3">
-                  {group.skills.map((skill, skillIdx) => (
-                    <div
-                      key={skillIdx}
-                      className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-lg bg-card border border-border text-foreground transition-all duration-200 hover:border-primary hover:text-primary hover:-translate-y-0.5 select-none"
+                  {group.skills.map((skill) => (
+                    <span
+                      key={skill}
+                      className="font-mono text-sm text-muted bg-card border border-border rounded-md px-3.5 py-1.5 hover:text-foreground hover:border-border-strong transition-colors duration-200"
                     >
-                      <span>{skill.icon}</span>
-                      <span>{skill.name}</span>
-                    </div>
+                      {skill}
+                    </span>
                   ))}
                 </div>
               </div>
-            ))}
-          </div>
+            </Reveal>
+          ))}
         </div>
-      </section>
-    );
-  }
+      </div>
+    </section>
+  );
+}

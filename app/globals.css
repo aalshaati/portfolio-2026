@@ -1,32 +1,73 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #0a0a0f;
-  --color-secondary-bg: #111118;
-  --color-panel-bg: #1a1a24;
-  --color-primary: #6c63ff;
-  --color-accent: #00d4ff;
-  --color-foreground: #e8e8f0;
-  --color-muted: #888899;
-  --color-border: #2a2a3a;
-  --color-card: #13131d;
+  --color-background: #faf7f2;
+  --color-surface: #f3ede2;
+  --color-card: #fffdf9;
+  --color-panel: #ece4d4;
+  --color-border: #e3d9c8;
+  --color-border-strong: #c9bba2;
+  --color-foreground: #2b241d;
+  --color-muted: #5f5344;
+  --color-faint: #94856f;
+  --color-accent: #9a4b24;
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-fraunces), ui-serif, Georgia, serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Accent variants — set on <html> by the pre-hydration script and the navbar switcher */
+html[data-theme="olive"] {
+  --color-accent: #5a6636;
+}
+
+html[data-theme="clay"] {
+  --color-accent: #8a6a2f;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-body[data-theme="cyber-cyan"] {
-  --color-primary: #00d4ff;
-}
-
-body[data-theme="matrix-green"] {
-  --color-primary: #10b981;
-}
-
 body {
   background-color: var(--color-background);
   color: var(--color-foreground);
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: var(--font-sans);
   line-height: 1.6;
+}
+
+/* Anchored sections stop below the fixed navbar */
+section[id] {
+  scroll-margin-top: 5.5rem;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--color-accent) 22%, transparent);
+}
+
+/* Scroll-reveal: Reveal.tsx adds .is-visible when the element enters the viewport */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
